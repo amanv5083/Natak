@@ -604,3 +604,171 @@ function copyCode8b() {
 }
 </script>
 
+
+
+<div style="background:white; padding:20px; border-radius:10px; 
+            box-shadow:0 4px 8px rgba(0,0,0,0.1); 
+            max-width:900px; margin:40px auto;">
+
+    <h2 style="text-align:center;">Practical No: 9</h2>
+    <p><strong>Aim:</strong> To demonstrate telephony app for remote calling user.</p>
+
+    <h3>Activity_Telephone.xml</h3>
+    <pre id="code9a" style="background:#1e1e1e; color:#00ff90; 
+                           padding:20px; border-radius:8px; overflow-x:auto;">
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TelephoneActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phone Calls Activity"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter phone number"
+            android:inputType="phone" />
+
+        <Button
+            android:id="@+id/btnDial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Open Dialer"
+            android:layout_marginTop="20dp" />
+
+        <Button
+            android:id="@+id/btnCall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Direct Call"
+            android:layout_marginTop="20dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </pre>
+
+    <button onclick="copyCode9a()">Copy XML Code</button>
+
+    <h3 style="margin-top:30px;">TelephoneActivity.java</h3>
+    <pre id="code9b" style="background:#1e1e1e; color:#00ff90; 
+                           padding:20px; border-radius:8px; overflow-x:auto;">
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import android.widget.Button;
+import android.widget.EditText;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+public class TelephoneActivity extends AppCompatActivity {
+
+    EditText edtNumber;
+    Button btnDial, btnCall;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_telephone);
+
+        edtNumber = findViewById(R.id.edtNumber);
+        btnDial = findViewById(R.id.btnDial);
+        btnCall = findViewById(R.id.btnCall);
+
+        // -------- Open Dialer --------
+        btnDial.setOnClickListener(view -> {
+            String number = edtNumber.getText().toString();
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:" + number));
+            startActivity(intent);
+        });
+
+        // -------- Direct Call --------
+        btnCall.setOnClickListener(view -> {
+            String number = edtNumber.getText().toString();
+
+            if (ContextCompat.checkSelfPermission(
+                    TelephoneActivity.this,
+                    Manifest.permission.CALL_PHONE)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                ActivityCompat.requestPermissions(
+                        TelephoneActivity.this,
+                        new String[]{Manifest.permission.CALL_PHONE},
+                        100);
+
+            } else {
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + number));
+                startActivity(callIntent);
+            }
+        });
+    }
+
+    // Handle permission result
+    @Override
+    public void onRequestPermissionsResult(
+            int requestCode,
+            @NonNull String[] permissions,
+            @NonNull int[] grantResults) {
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == 100) {
+            if (grantResults.length > 0 &&
+                grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                String number = edtNumber.getText().toString();
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + number));
+                startActivity(callIntent);
+            }
+        }
+    }
+}
+    </pre>
+
+    <button onclick="copyCode9b()">Copy Java Code</button>
+</div>
+
+<script>
+function copyCode9a() {
+    var code = document.getElementById("code9a").innerText;
+    navigator.clipboard.writeText(code);
+    alert("XML Code Copied!");
+}
+
+function copyCode9b() {
+    var code = document.getElementById("code9b").innerText;
+    navigator.clipboard.writeText(code);
+    alert("Java Code Copied!");
+}
+</script>
+
+     
+     
+     
+
