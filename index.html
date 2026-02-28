@@ -82,4 +82,96 @@ function copyCode() {
 
 
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practical No 2 - Kotlin Basic Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 40px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+        }
+        pre {
+            background: #1e1e1e;
+            color: #00ff90;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Practical No: 2</h2>
+    <p><strong>Aim:</strong> Write a Kotlin program to display Basic Calculator (ADD, MUL, DIV, SUB).</p>
+
+    <pre id="code">
+fun main() {
+
+    println("Enter first number:")
+    val num1 = 500
+    println(num1)
+    println("______")
+
+    println("Enter second number:")
+    val num2 = 10
+    println(num2)
+
+    println("____ Basic Calculator ____")
+
+    val sum = num1 + num2
+    println("The Sum is: $sum")
+
+    val multiply = num1 * num2
+    println("The Multiply is: $multiply")
+
+    val subtract = num1 - num2
+    println("The Subtract is: $subtract")
+
+    val division = num1 / num2
+    println("The Division is: $division")
+}
+    </pre>
+
+    <button onclick="copyCode()">Copy Code</button>
+</div>
+
+<script>
+function copyCode() {
+    var code = document.getElementById("code").innerText;
+    navigator.clipboard.writeText(code);
+    alert("Code Copied Successfully!");
+}
+</script>
+
+</body>
+</html>
+
+
+
 
