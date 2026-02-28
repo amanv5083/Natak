@@ -1,193 +1,20 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
-<title>Practical 1 - Student Information</title>
-
-<style>
-body{
-    font-family: Arial;
-    background:#0f0f0f;
-    color:white;
-    padding:30px;
-}
-h1{
-    color:#00ff99;
-}
-pre{
-    background:#1e1e1e;
-    padding:20px;
-    border-radius:10px;
-    overflow:auto;
-}
-button{
-    padding:10px 20px;
-    margin-top:15px;
-    background:#00ff99;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-    font-weight:bold;
-}
-button:hover{
-    background:#00cc77;
-}
-</style>
-
-</head>
-<body>
-
-<h1>Practical 1</h1>
-<h3>Aim: Write Kotlin program to display student information.</h3>
-
-<pre id="codeBox">
-fun main() {
-
-    val rollno = 17
-    val sname = "Yash"
-    val sclass = "SYCS"
-    val age = 19
-    val contact = "9892338498"
-    val hobbies = "Sketching"
-
-    println("===== OUTPUT =====")
-    println("Roll No : $rollno")
-    println("Name    : $sname")
-    println("Class   : $sclass")
-    println("Age     : $age")
-    println("Contact : $contact")
-    println("Hobbies : $hobbies")
-    println("++++++++++++++++++++++++++++")
-}
-</pre>
-
-<button onclick="copyCode()">Copy Code</button>
-
-<script>
-function copyCode(){
-    var text = document.getElementById("codeBox").innerText;
-
-    var textarea = document.createElement("textarea");
-    textarea.value = text;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textarea);
-
-    alert("Code Copied Successfully ✅");
-}
-</script>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html>
-<head>
-<title>Practical 2 - Basic Calculator</title>
-
-<style>
-body{
-    font-family: Arial;
-    background:#0f0f0f;
-    color:white;
-    padding:30px;
-}
-h1{
-    color:#00ff99;
-}
-pre{
-    background:#1e1e1e;
-    padding:20px;
-    border-radius:10px;
-    overflow:auto;
-}
-button{
-    padding:10px 20px;
-    margin-top:15px;
-    background:#00ff99;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-    font-weight:bold;
-}
-button:hover{
-    background:#00cc77;
-}
-</style>
-
-</head>
-<body>
-
-<h1>Practical No. 02</h1>
-<h3>Aim: Write a Kotlin program to display basic calculator (ADD, MUL, SUB, DIV).</h3>
-
-<pre id="codeBox">
-fun main() {
-
-    println("Enter first number:")
-    val num1 = 45
-    println(num1)
-
-    println("==========================")
-
-    println("Enter second number:")
-    val num2 = 9
-    println(num2)
-
-    println("============= Basic Calculator =============")
-
-    val sum = num1 + num2
-    println("The sum is: $sum")
-
-    val m = num1 * num2
-    println("The Multiply is: $m")
-
-    val s = num1 - num2
-    println("The Subtract is: $s")
-
-    val dd = num1 / num2
-    println("The div is: $dd")
-}
-</pre>
-
-<button onclick="copyCode()">Copy Code</button>
-
-<script>
-function copyCode(){
-    var text = document.getElementById("codeBox").innerText;
-
-    var textarea = document.createElement("textarea");
-    textarea.value = text;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textarea);
-
-    alert("Code Copied Successfully ✅");
-}
-</script>
-
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Practical No 03 - Kotlin Table</title>
+    <title>Practical No 1 - Student Information</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
+            background-color: #f2f2f2;
             padding: 40px;
         }
         .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
             max-width: 800px;
             margin: auto;
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         h2 {
             text-align: center;
@@ -216,17 +43,25 @@ function copyCode(){
 <body>
 
 <div class="container">
-    <h2>Practical No: 03</h2>
-    <p><strong>Aim:</strong> Write a Kotlin program to display 1 to 10 multiplication table</p>
+    <h2>Practical No: 1</h2>
+    <p><strong>Aim:</strong> Write a Kotlin program to display student information</p>
 
     <pre id="codeBlock">
 fun main() {
-    for(i in 1..10) {
-        for(j in 1..10) {
-            print("    ${i * j}")
-        }
-        println()
-    }
+    var rollno = 36
+    val sname = "Nomisha"
+    val sclass = "SYCS"
+    val Age = 20
+    val Contact = 234567891
+    val hobbies = "drawing art"
+
+    println("_____OUTPUT____")
+    println("Rollno: $rollno")
+    println("Name: $sname")
+    println("Class: $sclass")
+    println("Age: $Age")
+    println("Contact No: $Contact")
+    println("Hobbies: $hobbies")
 }
     </pre>
 
@@ -243,5 +78,8 @@ function copyCode() {
 
 </body>
 </html>
+
+
+
 
 
