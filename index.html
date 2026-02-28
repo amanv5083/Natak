@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Kotlin Practical Codes</title>
+<title>Practical 1 - Student Information</title>
 
 <style>
 body{
     font-family: Arial;
     background:#0f0f0f;
     color:white;
-    padding:20px;
-    text-align:center;
+    padding:30px;
 }
 h1{
     color:#00ff99;
 }
+pre{
+    background:#1e1e1e;
+    padding:20px;
+    border-radius:10px;
+    overflow:auto;
+}
 button{
-    padding:10px 15px;
-    margin:5px;
+    padding:10px 20px;
+    margin-top:15px;
     background:#00ff99;
     border:none;
     border-radius:5px;
@@ -26,129 +31,142 @@ button{
 button:hover{
     background:#00cc77;
 }
+</style>
+
+</head>
+<body>
+
+<h1>Practical 1</h1>
+<h3>Aim: Write Kotlin program to display student information.</h3>
+
+<pre id="codeBox">
+fun main() {
+
+    val rollno = 17
+    val sname = "Yash"
+    val sclass = "SYCS"
+    val age = 19
+    val contact = "9892338498"
+    val hobbies = "Sketching"
+
+    println("===== OUTPUT =====")
+    println("Roll No : $rollno")
+    println("Name    : $sname")
+    println("Class   : $sclass")
+    println("Age     : $age")
+    println("Contact : $contact")
+    println("Hobbies : $hobbies")
+    println("++++++++++++++++++++++++++++")
+}
+</pre>
+
+<button onclick="copyCode()">Copy Code</button>
+
+<script>
+function copyCode(){
+    var text = document.getElementById("codeBox").innerText;
+
+    var textarea = document.createElement("textarea");
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    alert("Code Copied Successfully ✅");
+}
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Practical 2 - Basic Calculator</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#0f0f0f;
+    color:white;
+    padding:30px;
+}
+h1{
+    color:#00ff99;
+}
 pre{
     background:#1e1e1e;
     padding:20px;
     border-radius:10px;
     overflow:auto;
-    text-align:left;
-    margin-top:20px;
+}
+button{
+    padding:10px 20px;
+    margin-top:15px;
+    background:#00ff99;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-weight:bold;
+}
+button:hover{
+    background:#00cc77;
 }
 </style>
+
 </head>
 <body>
 
-<h1>🔥 Kotlin 11 Practicals 🔥</h1>
+<h1>Practical No. 02</h1>
+<h3>Aim: Write a Kotlin program to display basic calculator (ADD, MUL, SUB, DIV).</h3>
 
-<!-- Buttons -->
-<div>
-<button onclick="showCode(1)">Practical 1</button>
-<button onclick="showCode(2)">Practical 2</button>
-<button onclick="showCode(3)">Practical 3</button>
-<button onclick="showCode(4)">Practical 4</button>
-<button onclick="showCode(5)">Practical 5</button>
-<button onclick="showCode(6)">Practical 6</button>
-<button onclick="showCode(7)">Practical 7</button>
-<button onclick="showCode(8)">Practical 8</button>
-<button onclick="showCode(9)">Practical 9</button>
-<button onclick="showCode(10)">Practical 10</button>
-<button onclick="showCode(11)">Practical 11</button>
-</div>
+<pre id="codeBox">
+fun main() {
 
-<pre id="codeBox">Click any practical button to view code...</pre>
+    println("Enter first number:")
+    val num1 = 45
+    println(num1)
+
+    println("==========================")
+
+    println("Enter second number:")
+    val num2 = 9
+    println(num2)
+
+    println("============= Basic Calculator =============")
+
+    val sum = num1 + num2
+    println("The sum is: $sum")
+
+    val m = num1 * num2
+    println("The Multiply is: $m")
+
+    val s = num1 - num2
+    println("The Subtract is: $s")
+
+    val dd = num1 / num2
+    println("The div is: $dd")
+}
+</pre>
 
 <button onclick="copyCode()">Copy Code</button>
 
 <script>
-
-const codes = {
-
-1: `fun main() {
-    val rollno = 17
-    val sname = "Yash"
-    println("Roll No: $rollno")
-    println("Name: $sname")
-}`,
-
-2: `fun main() {
-    val num1 = 45
-    val num2 = 9
-    println("Sum = ${num1 + num2}")
-}`,
-
-3: `fun main() {
-    for(i in 1..10){
-        for(j in 1..10){
-            print("${i*j}\\t")
-        }
-        println()
-    }
-}`,
-
-4: `fun main() {
-    for(i in 1..10){
-        for(j in 1..i){
-            print("* ")
-        }
-        println()
-    }
-}`,
-
-5: `fun main() {
-    for(i in 1..10){
-        for(j in 1..i){
-            print("$j ")
-        }
-        println()
-    }
-}`,
-
-6: `class Employee{
-    fun show(name:String){
-        println("Employee: $name")
-    }
-}
-fun main(){
-    val e=Employee()
-    e.show("Mohit")
-}`,
-
-7: `open class Add{
-    fun add(a:Int,b:Int)=println(a+b)
-}
-class Sub:Add()
-fun main(){
-    val obj=Sub()
-    obj.add(5,3)
-}`,
-
-8: `// Music Player App code here (Android Java)`,
-
-9: `// Telephone App code here (Android Java)`,
-
-10: `// WhatsApp Menu App code here (Android Java)`,
-
-11: `class Calculator{
-    fun add(a:Int,b:Int)=a+b
-}
-fun main(){
-    val c=Calculator()
-    println(c.add(10,5))
-}`
-
-};
-
-function showCode(num){
-    document.getElementById("codeBox").innerText = codes[num];
-}
-
 function copyCode(){
     var text = document.getElementById("codeBox").innerText;
-    navigator.clipboard.writeText(text);
-    alert("Code Copied ✅");
-}
 
+    var textarea = document.createElement("textarea");
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    alert("Code Copied Successfully ✅");
+}
 </script>
 
 </body>
 </html>
+
