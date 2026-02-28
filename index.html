@@ -457,3 +457,150 @@ function copyCode7() {
 }
 </script>
 
+
+
+
+
+
+<div style="background:white; padding:20px; border-radius:10px; 
+            box-shadow:0 4px 8px rgba(0,0,0,0.1); 
+            max-width:900px; margin:40px auto;">
+
+    <h2 style="text-align:center;">Practical No: 8</h2>
+    <p><strong>Aim:</strong> To demonstrate Music Player App with Start, Pause and Stop feature.</p>
+
+    <h3>Activity_musicplayer.xml</h3>
+    <pre id="code8a" style="background:#1e1e1e; color:#00ff90; 
+                           padding:20px; border-radius:8px; overflow-x:auto;">
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Musicplayer">
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="START"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnPause"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PAUSE"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart"
+        app:layout_constraintBottom_toTopOf="@+id/btnStop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="STOP"
+        app:layout_constraintTop_toBottomOf="@+id/btnPause"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </pre>
+
+    <button onclick="copyCode8a()">Copy XML Code</button>
+
+    <h3 style="margin-top:30px;">MusicPlayer.java</h3>
+    <pre id="code8b" style="background:#1e1e1e; color:#00ff90; 
+                           padding:20px; border-radius:8px; overflow-x:auto;">
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+public class Musicplayer extends AppCompatActivity {
+
+    MediaPlayer mp1;
+    Button b1, b2, b3;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_musicplayer);
+
+        b1 = findViewById(R.id.btnStart);
+        b2 = findViewById(R.id.btnPause);
+        b3 = findViewById(R.id.btnStop);
+
+        mp1 = MediaPlayer.create(this, R.raw.sagar);
+
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!mp1.isPlaying()) {
+                    mp1.start();
+                }
+            }
+        });
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mp1.isPlaying()) {
+                    mp1.pause();
+                }
+            }
+        });
+
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mp1 != null) {
+                    mp1.stop();
+                    try {
+                        mp1.prepare();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mp1 != null) {
+            mp1.release();
+            mp1 = null;
+        }
+    }
+}
+    </pre>
+
+    <button onclick="copyCode8b()">Copy Java Code</button>
+</div>
+
+<script>
+function copyCode8a() {
+    var code = document.getElementById("code8a").innerText;
+    navigator.clipboard.writeText(code);
+    alert("XML Code Copied!");
+}
+
+function copyCode8b() {
+    var code = document.getElementById("code8b").innerText;
+    navigator.clipboard.writeText(code);
+    alert("Java Code Copied!");
+}
+</script>
+
