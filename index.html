@@ -170,3 +170,78 @@ function copyCode(){
 </body>
 </html>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practical No 03 - Kotlin Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 40px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        pre {
+            background: #1e1e1e;
+            color: #00ff88;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Practical No: 03</h2>
+    <p><strong>Aim:</strong> Write a Kotlin program to display 1 to 10 multiplication table</p>
+
+    <pre id="codeBlock">
+fun main() {
+    for(i in 1..10) {
+        for(j in 1..10) {
+            print("    ${i * j}")
+        }
+        println()
+    }
+}
+    </pre>
+
+    <button onclick="copyCode()">Copy Code</button>
+</div>
+
+<script>
+function copyCode() {
+    const code = document.getElementById("codeBlock").innerText;
+    navigator.clipboard.writeText(code);
+    alert("Code copied successfully!");
+}
+</script>
+
+</body>
+</html>
+
+
