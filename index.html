@@ -381,3 +381,79 @@ function copyCode6() {
     alert("Code Copied Successfully!");
 }
 </script>
+
+
+
+
+
+
+<div style="background:white; padding:20px; border-radius:10px; 
+            box-shadow:0 4px 8px rgba(0,0,0,0.1); 
+            max-width:800px; margin:40px auto;">
+
+    <h2 style="text-align:center;">Practical No: 7</h2>
+    <p><strong>Aim:</strong> Write a Kotlin program to showcase multilevel inheritance.</p>
+
+    <pre id="code7" style="background:#1e1e1e; color:#00ff90; 
+                           padding:20px; border-radius:8px; overflow-x:auto;">
+// Parent class – performs Addition
+open class Add {
+    fun addition(a: Int, b: Int) {
+        println("Addition = ${a + b}")
+    }
+}
+
+// Child of Add – performs Subtraction
+open class Subtract : Add() {
+    fun subtraction(a: Int, b: Int) {
+        println("Subtraction = ${a - b}")
+    }
+}
+
+// Child of Subtract – performs Multiplication
+open class Multiply : Subtract() {
+    fun multiplication(a: Int, b: Int) {
+        println("Multiplication = ${a * b}")
+    }
+}
+
+// Child of Multiply – performs Division
+class Divide : Multiply() {
+    fun division(a: Int, b: Int) {
+        if (b != 0) {
+            println("Division = ${a / b}")
+        } else {
+            println("Cannot divide by zero!")
+        }
+    }
+}
+
+fun main() {
+
+    val obj = Divide()
+    val x = 30
+    val y = 5
+
+    obj.addition(x, y)
+    obj.subtraction(x, y)
+    obj.multiplication(x, y)
+    obj.division(x, y)
+
+}
+    </pre>
+
+    <button onclick="copyCode7()" 
+            style="background:#007bff; color:white; border:none; 
+                   padding:8px 15px; border-radius:5px; cursor:pointer;">
+        Copy Code
+    </button>
+</div>
+
+<script>
+function copyCode7() {
+    var code = document.getElementById("code7").innerText;
+    navigator.clipboard.writeText(code);
+    alert("Code Copied Successfully!");
+}
+</script>
+
