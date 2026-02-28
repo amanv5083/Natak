@@ -292,3 +292,92 @@ function copyCode5() {
     alert("Code Copied Successfully!");
 }
 </script>
+
+
+
+
+
+<div style="background:white; padding:20px; border-radius:10px; 
+            box-shadow:0 4px 8px rgba(0,0,0,0.1); 
+            max-width:800px; margin:40px auto;">
+
+    <h2 style="text-align:center;">Practical No: 6</h2>
+    <p><strong>Aim:</strong> Write a Kotlin program to create Employee class to display employee details.</p>
+
+    <pre id="code6" style="background:#1e1e1e; color:#00ff90; 
+                           padding:20px; border-radius:8px; overflow-x:auto;">
+class Employee {
+
+    // Function to print employee details
+    fun getDetails(
+        empno: Int,
+        name: String,
+        address: String,
+        contact: String,
+        gender: String,
+        cname: String,
+        dept: String,
+        salary: String,
+        desig: String
+    ) {
+        println("==== Employee Details ====")
+        println("Employee No: $empno")
+        println("Employee Name: $name")
+        println("Employee Address: $address")
+        println("Employee Contact: $contact")
+        println("Employee Gender: $gender")
+        println("Company Name: $cname")
+        println("Department: $dept")
+        println("Salary: $salary")
+        println("Designation: $desig")
+        println("--------------------------")
+    }
+
+    fun showDetails(
+        empno: Int,
+        name: String,
+        address: String,
+        contact: String,
+        gender: String,
+        cname: String,
+        dept: String,
+        salary: String,
+        desig: String
+    ) {
+        getDetails(empno, name, address, contact, gender, cname, dept, salary, desig)
+    }
+}
+
+fun main() {
+
+    val e1 = Employee()
+    val e2 = Employee()
+    val e3 = Employee()
+    val e4 = Employee()
+    val e5 = Employee()
+
+    println("=========== Employee List ===========")
+
+    e1.showDetails(101, "Nomisha", "Thane", "2345565544", "Female", "ITI", "CS", "23000", "Developer")
+    e2.showDetails(102, "Akash", "Bhandup", "2345565544", "Male", "HCL", "CS", "30000", "Developer")
+    e3.showDetails(103, "Priya", "Kalwa", "2345565544", "Female", "TCS", "CS", "25000", "Developer")
+    e4.showDetails(104, "Priyal", "Airoli", "2345565544", "Female", "Accenture", "CS", "25000", "Developer")
+    e5.showDetails(105, "Vandana", "Ghansoli", "2345565544", "Female", "Capgemini", "CS", "26000", "Developer")
+
+}
+    </pre>
+
+    <button onclick="copyCode6()" 
+            style="background:#007bff; color:white; border:none; 
+                   padding:8px 15px; border-radius:5px; cursor:pointer;">
+        Copy Code
+    </button>
+</div>
+
+<script>
+function copyCode6() {
+    var code = document.getElementById("code6").innerText;
+    navigator.clipboard.writeText(code);
+    alert("Code Copied Successfully!");
+}
+</script>
