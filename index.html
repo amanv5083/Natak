@@ -766,9 +766,179 @@ function copyCode9b() {
     navigator.clipboard.writeText(code);
     alert("Java Code Copied!");
 }
+ 
 </script>
 
-     
+
+
+
+
+         
+
+<div style="background:white; padding:20px; border-radius:10px; 
+box-shadow:0 4px 8px rgba(0,0,0,0.1); 
+max-width:950px; margin:40px auto;">
+
+<h2 style="text-align:center;">Practical No: 10</h2>
+<p><strong>Aim:</strong> To Demonstrate WhatsApp Menu using Android App.</p>
+
+<h3>Main_menu.xml</h3>
+<pre id="code10a" style="background:#1e1e1e; color:#00ff90; padding:20px; border-radius:8px; overflow-x:auto;">
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/newgroup" android:title="New Group"/>
+    <item android:id="@+id/committee" android:title="New Community"/>
+    <item android:id="@+id/bcast" android:title="Broadcast"/>
+    <item android:id="@+id/devices" android:title="Linked Devices"/>
+    <item android:id="@+id/payment" android:title="Payments"/>
+    <item android:id="@+id/setting" android:title="Settings"/>
+</menu>
+</pre>
+<button onclick="copyCode10a()">Copy Code</button>
+
+<h3 style="margin-top:30px;">Activity_menu.xml</h3>
+<pre id="code10b" style="background:#1e1e1e; color:#00ff90; padding:20px; border-radius:8px; overflow-x:auto;">
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:title="My App"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</pre>
+<button onclick="copyCode10b()">Copy Code</button>
+
+<h3 style="margin-top:30px;">MenuActivity.java</h3>
+<pre id="code10c" style="background:#1e1e1e; color:#00ff90; padding:20px; border-radius:8px; overflow-x:auto;">
+package com.example.myapplication;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
+
+public class MenuActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_menu);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.newgroup) {
+            Toast.makeText(this, "New Group clicked", Toast.LENGTH_SHORT).show();
+        } 
+        else if (id == R.id.committee) {
+            Toast.makeText(this, "New Community clicked", Toast.LENGTH_SHORT).show();
+        } 
+        else if (id == R.id.bcast) {
+            Toast.makeText(this, "Broadcast clicked", Toast.LENGTH_SHORT).show();
+        } 
+        else if (id == R.id.devices) {
+            Toast.makeText(this, "Linked Devices clicked", Toast.LENGTH_SHORT).show();
+        } 
+        else if (id == R.id.payment) {
+            Toast.makeText(this, "Payment clicked", Toast.LENGTH_SHORT).show();
+        } 
+        else if (id == R.id.setting) {
+            Intent i = new Intent(this, SettingActivity.class);
+            startActivity(i);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}
+</pre>
+<button onclick="copyCode10c()">Copy Code</button>
+
+<h3 style="margin-top:30px;">SettingActivity.java</h3>
+<pre id="code10d" style="background:#1e1e1e; color:#00ff90; padding:20px; border-radius:8px; overflow-x:auto;">
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class SettingActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_setting);
+    }
+}
+</pre>
+<button onclick="copyCode10d()">Copy Code</button>
+
+<h3 style="margin-top:30px;">Activity_setting.xml</h3>
+<pre id="code10e" style="background:#1e1e1e; color:#00ff90; padding:20px; border-radius:8px; overflow-x:auto;">
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_orange_light"
+    tools:context=".SettingActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Setting Activity Frame"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</pre>
+<button onclick="copyCode10e()">Copy Code</button>
+
+</div>
+
+<script>
+function copyCode10a(){navigator.clipboard.writeText(document.getElementById("code10a").innerText);alert("Copied!");}
+function copyCode10b(){navigator.clipboard.writeText(document.getElementById("code10b").innerText);alert("Copied!");}
+function copyCode10c(){navigator.clipboard.writeText(document.getElementById("code10c").innerText);alert("Copied!");}
+function copyCode10d(){navigator.clipboard.writeText(document.getElementById("code10d").innerText);alert("Copied!");}
+function copyCode10e(){navigator.clipboard.writeText(document.getElementById("code10e").innerText);alert("Copied!");}
+</script>
+      
      
      
 
