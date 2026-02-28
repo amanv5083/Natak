@@ -938,6 +938,90 @@ function copyCode10c(){navigator.clipboard.writeText(document.getElementById("co
 function copyCode10d(){navigator.clipboard.writeText(document.getElementById("code10d").innerText);alert("Copied!");}
 function copyCode10e(){navigator.clipboard.writeText(document.getElementById("code10e").innerText);alert("Copied!");}
 </script>
+
+
+
+
+<div style="background:white; padding:20px; border-radius:10px; 
+box-shadow:0 4px 8px rgba(0,0,0,0.1); 
+max-width:900px; margin:40px auto;">
+
+<h2 style="text-align:center;">Practical No: 11</h2>
+<p><strong>Aim:</strong> To demonstrate Calculator App using Android (Kotlin).</p>
+
+<h3>Calculator.kt</h3>
+
+<pre id="code11" style="background:#1e1e1e; color:#00ff90; padding:20px; border-radius:8px; overflow-x:auto;">
+package com.example.myapplication
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+
+class Calculator : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_calculator)
+
+        val etNum1 = findViewById<EditText>(R.id.txtno1)
+        val etNum2 = findViewById<EditText>(R.id.txtno2)
+        val txtResult = findViewById<EditText>(R.id.txtresult)
+
+        val btnAdd = findViewById<Button>(R.id.btnAdd)
+        val btnSub = findViewById<Button>(R.id.btnSub)
+        val btnMul = findViewById<Button>(R.id.btnMul)
+        val btnDiv = findViewById<Button>(R.id.btnDiv)
+
+        btnAdd.setOnClickListener {
+            val num1 = etNum1.text.toString().toIntOrNull() ?: 0
+            val num2 = etNum2.text.toString().toIntOrNull() ?: 0
+            txtResult.setText((num1 + num2).toString())
+        }
+
+        btnSub.setOnClickListener {
+            val num1 = etNum1.text.toString().toIntOrNull() ?: 0
+            val num2 = etNum2.text.toString().toIntOrNull() ?: 0
+            txtResult.setText((num1 - num2).toString())
+        }
+
+        btnMul.setOnClickListener {
+            val num1 = etNum1.text.toString().toIntOrNull() ?: 0
+            val num2 = etNum2.text.toString().toIntOrNull() ?: 0
+            txtResult.setText((num1 * num2).toString())
+        }
+
+        btnDiv.setOnClickListener {
+            val num1 = etNum1.text.toString().toIntOrNull() ?: 0
+            val num2 = etNum2.text.toString().toIntOrNull() ?: 1
+
+            if (num2 != 0) {
+                txtResult.setText((num1 / num2).toString())
+            } else {
+                txtResult.setText("Cannot divide by zero")
+            }
+        }
+    }
+}
+</pre>
+
+<button onclick="copyCode11()" 
+style="background:#007bff; color:white; border:none; padding:8px 15px; border-radius:5px; cursor:pointer;">
+Copy Code
+</button>
+
+</div>
+
+<script>
+function copyCode11(){
+navigator.clipboard.writeText(document.getElementById("code11").innerText);
+alert("Code Copied Successfully!");
+}
+</script>
+
+
+     
       
      
      
